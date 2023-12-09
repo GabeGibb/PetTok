@@ -4,7 +4,7 @@ class Post{
         this.pfp = pfp;
         this.petpic = petpic;
         this.description = description;
-        this.createPost();
+        // this.createPost();
     }
 
     createPost(){
@@ -45,9 +45,23 @@ class Post{
 
 // dexter0 = new Post("Dexter", 'pets/dexter0.jpg', 'pets/dexter0.jpg', "dexter")
 // ollie0 = new Post("Ollie", "pets/ollie0.jpg", "pets/ollie0.jpg", "bork")
+
+let posts = []
+
 function createPosts(){
     for (let i = 0; i < pets.length; i++){
-        new Post(pets[i].petName, pets[i].pfp, pets[i].images[0], pets[i].posts[0].description)
+        for(let j = 0; j < pets[i]['posts'].length; j++){
+            posts.push(new Post(pets[i].petName, pets[i].pfp, pets[i].images[j], pets[i].posts[j].description))
+        }
     }
-    
+    shuffleArray(posts);
+    posts.forEach((post) => post.createPost());
+}
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }
