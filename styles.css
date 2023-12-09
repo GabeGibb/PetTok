@@ -1,9 +1,9 @@
-#webcam{
+#canvas{
     border-width:10px;
     border-color:red;
     border-style:solid;
-    width:352px;
-    height:138px;
+    /* width:352px;
+    height:138px; */
     margin:auto;
 }
 

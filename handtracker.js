@@ -28,7 +28,8 @@ handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
     updateNote.innerText = "Loaded Model!"
-    trackButton.disabled = false
+    // trackButton.disabled = false
+    toggleVideo()
 });
 
 
@@ -67,9 +68,7 @@ function runDetection() {
         let boxes = []
 
         for(let p of predictions){
-            //uncomment to view label and position data
-            // console.log(p.label + " at X: " + p.bbox[0] + ", Y: " + p.bbox[1] + " at X: " + p.bbox[2] + ", Y: " + p.bbox[3]);
-            
+
             if(p.label == 'open') openhands++;
             if(p.label == 'closed') closedhands++;
             if(p.label == 'point') pointing++;
@@ -115,50 +114,3 @@ function runDetection() {
         }
     });
 }
-
-// function runDetection(){
-//     if (model != null){
-//         model.detect(video.nativeElement).then((predictions) => {
-//             if (predictions.length <= 0) return;
-            
-//             let openhands = 0;
-//             let closedhands = 0;
-//             let pointing = 0;
-//             let pinching = 0;
-//             for(let p of predictions){
-//                 //uncomment to view label and position data
-//                 console.log(p.label + " at X: " + p.bbox[0] + ", Y: " + p.bbox[1] + " at X: " + p.bbox[2] + ", Y: " + p.bbox[3]);
-                
-//                 if(p.label == 'open') openhands++;
-//                 if(p.label == 'closed') closedhands++;
-//                 if(p.label == 'point') pointing++;
-//                 if(p.label == 'pinch') pinching++;
-                
-//             }
-    
-//             // These are just a few options! What about one hand open and one hand closed!?
-    
-//             if (openhands > 1) detectedGesture = "Two Open Hands";
-//             else if(openhands == 1) detectedGesture = "Open Hand";
-            
-//             if (closedhands > 1) detectedGesture = "Two Closed Hands";
-//             else if(closedhands == 1) detectedGesture = "Closed Hand";
-            
-//             if (pointing > 1) detectedGesture = "Two Hands Pointing";
-//             else if(pointing == 1) detectedGesture = "Hand Pointing";
-            
-//             if (pinching > 1) detectedGesture = "Two Hands Pinching";
-//             else if(pinching == 1) detectedGesture = "Hand Pinching";
-    
-//             if (openhands == 0 && closedhands == 0 && pointing == 0 && pinching == 0)
-//                 detectedGesture = "None";
-    
-//             onPrediction.emit(new PredictionEvent(detectedGesture))
-//         }, (err) => {
-//             console.log("ERROR")
-//             console.log(err)
-//         });
-//     }else{
-//         console.log("no model")
-//     }
-// }
