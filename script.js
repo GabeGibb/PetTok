@@ -43,5 +43,11 @@ class Post{
 }
 
 
-dexter0 = new Post("Dexter", 'pets/dexter0.jpg', 'pets/dexter0.jpg', "dexter")
-ollie0 = new Post("Ollie", "pets/ollie0.jpg", "pets/ollie0.jpg", "bork")
+// dexter0 = new Post("Dexter", 'pets/dexter0.jpg', 'pets/dexter0.jpg', "dexter")
+// ollie0 = new Post("Ollie", "pets/ollie0.jpg", "pets/ollie0.jpg", "bork")
+function createPosts(){
+    for (let i = 0; i < pets.length; i++){
+        new Post(pets[i].petName, pets[i].pfp, pets[i].images[0], pets[i].posts[0].description)
+    }
+    
+}
