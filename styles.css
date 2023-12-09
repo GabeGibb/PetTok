@@ -1,0 +1,30 @@
+#webcam{
+    border-width:10px;
+    border-color:red;
+    border-style:solid;
+    width:352px;
+    height:138px;
+    margin:auto;
+}
+
+#webcam button{
+    /* margin:auto; */
+    /* text-align: center; */
+    display:flex;
+}
+.pfp{
+    clip-path:circle();
+    width: 50px;
+}
+.profile{
+    display:flex;
+    align-items: center;
+
+}
+.petpic{
+    width:352px;
+    height:329px;
+    margin:auto;
+    display:flex;
+    object-fit: cover;
+}
