@@ -7,10 +7,9 @@
     margin:auto;
 }
 
-#webcam button{
-    /* margin:auto; */
-    /* text-align: center; */
-    display:flex;
+#trackbutton{
+    margin:auto;
+
 }
 .pfp{
     clip-path:circle();
@@ -29,11 +28,22 @@
     object-fit: cover;
 }
 .post{
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position:relative;
     flex-wrap:wrap;
-    align-content:center;
-    
+    align-content:center;    
+    border-style:solid;
+    border-radius:10px;
+    border-width:1px;
+    margin:auto;
+    margin-top:15px;
+    margin-bottom:15px;
+    width:fit-content;
+   
+}
+.interactions{
+    padding-top: 5px;
 }
