@@ -21,8 +21,9 @@
 
 }
 .petpic{
-    width:352px;
-    height:329px;
+    /* width:30vw;
+    height:30vw; */
+    max-width:800px;
     margin:auto;
     display:flex;
     object-fit: cover;
