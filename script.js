@@ -42,5 +42,5 @@ class Post{
 
 }
 
-dexter0 = new Post("Dexter", '/pets/dexter0.jpg', '/pets/dexter0.jpg', "dexter")
+dexter0 = new Post("Dexter", 'pets/dexter0.jpg', 'pets/dexter0.jpg', "dexter")
 ollie0 = new Post("Ollie", "pets/ollie0.jpg", "pets/ollie0.jpg", "bork")
