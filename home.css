@@ -1,0 +1,58 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+body{
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-attachment:fixed;
+    background: url(home/background.png);
+    position:relative;
+}
+.title{
+    height:10%;
+    margin:auto;
+    display:flex;
+    position:relative;
+    top:15px;
+}
+.clouds{
+    /* position:relative;
+    top:-700px; */
+    margin:auto;
+    display:flex;
+}
+.clouds img{
+    /* height:10%; */
+    width:30%;
+}
+#cloud1{
+    /* position:relative;
+    top: -80px; */
+    position: absolute;
+    left: 100%;
+    top: 150px;
+    animation: moveFirst 5s linear .2s;
+    animation-iteration-count: 1;
+    width: 150px;
+    z-index:10;
+}
+
+@-webkit-keyframes move {
+    from {
+      left: -30%;
+    }
+    to {
+      left: 100%;
+    }
+  }
+  
+  @-webkit-keyframes moveFirst {
+    from {
+      left: 50%;
+    }
+    to {
+      left: 100%;
+    }
+  }
