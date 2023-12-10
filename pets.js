@@ -7,9 +7,9 @@ class Pet{
         for (let i = 1; i < this.posts.length + 1; i++){
             this.images.push('pets/' + this.petName + i + '.jpg')
         }
-        console.log(this.petName)
-        console.log(this.images)
-        console.log(this.posts)
+        // console.log(this.petName)
+        // console.log(this.images)
+        // console.log(this.posts)
 
     }
 }

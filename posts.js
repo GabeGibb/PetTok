@@ -29,7 +29,7 @@ class Post{
 
         let interactions = post.appendChild(document.createElement("interactions"));
         interactions.classList.add("interactions");
-        interactions.innerHTML = "<i class=\"fa fa-heart-o\" style=\"font-size:40px; padding-right:5px;\"></i><i class=\"fa fa-comment-o\" style=\"font-size:40px; padding-left:5px;\"></i>";
+        interactions.innerHTML = "<i class=\"fa fa-heart-o\" style=\"font-size:30px; padding-left:5px; padding-right:5px; cursor:pointer;\" onclick=\"likePost()\"></i><i class=\"fa fa-comment-o\" style=\"font-size:30px; padding-right:5px; padding-left:5px;\"></i>";
         
         let caption = post.appendChild(document.createElement("div"));
         caption.classList.add("caption");
@@ -39,9 +39,12 @@ class Post{
 
         document.body.append(post)
     }
-
 }
 
+function likePost(){
+    alert("hai");
+    console.log("a")
+}
 
 // dexter0 = new Post("Dexter", 'pets/dexter0.jpg', 'pets/dexter0.jpg', "dexter")
 // ollie0 = new Post("Ollie", "pets/ollie0.jpg", "pets/ollie0.jpg", "bork")
