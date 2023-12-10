@@ -1,3 +1,61 @@
+class Post{
+    constructor(name, pfp, petpic, description){
+        this.name = name;
+        this.pfp = pfp;
+        this.petpic = petpic;
+        this.description = description;
+        // this.createPost();
+    }
+
+    createPost(){
+
+        let post = document.createElement("div");
+        post.classList.add("post");
+
+        let profile = post.appendChild(document.createElement('div'));
+        profile.classList.add("profile");
+        let pfp = profile.appendChild(document.createElement("img"));
+        pfp.classList.add('pfp');
+        pfp.src = this.pfp;
+        let name = profile.appendChild(document.createElement("p"));
+        name.classList.add('name')
+        name.innerHTML = this.name;
+
+        let pic = post.appendChild(document.createElement("div"));
+        pic.classList.add("pic");
+        let petpic = pic.appendChild(document.createElement("img"));
+        petpic.classList.add("petpic");
+        petpic.src = this.petpic;
+
+        let interactions = post.appendChild(document.createElement("interactions"));
+        interactions.classList.add("interactions");
+        interactions.innerHTML = "<i class=\"fa fa-heart-o\" style=\"font-size:30px; padding-left:5px; padding-right:5px; cursor:pointer;\"></i><i class=\"fa fa-comment-o\" style=\"font-size:30px; padding-right:5px; padding-left:5px;\"></i>";
+        // let obj = this
+        interactions.childNodes[0].onclick = function(){
+            if(interactions.childNodes[0].classList.contains('fa-heart-o')){
+            interactions.childNodes[0].classList.remove('fa-heart-o');
+            interactions.childNodes[0].classList.add('fa-heart');
+            }
+            else{
+                interactions.childNodes[0].classList.remove('fa-heart');
+                interactions.childNodes[0].classList.add('fa-heart-o');
+            }
+        };
+
+        let caption = post.appendChild(document.createElement("div"));
+        caption.classList.add("caption");
+        let captionUser = caption.appendChild(document.createElement('p'));
+        captionUser.classList.add("captionUser");
+        captionUser.innerHTML = "@" + this.name;
+        let captionText = caption.appendChild(document.createElement("p"));
+        captionText.classList.add("captionText");
+        captionText.innerHTML = this.description;
+
+        document.getElementById('posts').append(post)
+    }
+
+}
+
 class Pet{
     constructor(petName, posts){
         this.petName = petName;
@@ -7,24 +65,69 @@ class Pet{
         for (let i = 1; i < this.posts.length + 1; i++){
             this.images.push('pets/' + this.petName + i + '.jpg')
         }
-        // console.log(this.petName)
-        // console.log(this.images)
-        // console.log(this.posts)
 
     }
 }
-// let petName = 'shelby'
-// let d = ['yee haw!', 'hello brother', 'this son of a bitch', 'idk']
 
-// let shelby = new Pet(petName, d);
 
-let pets = []
 
-fetch('pets.json')
-.then((response) => response.json())
-.then((json) => {
-    for(let i = 0; i < json.length; i++){
-        pets.push(new Pet(json[i]['name'], json[i]['posts']))
+function createPosts(pets){
+    let posts = []
+    for (let i = 0; i < pets.length; i++){
+        for(let j = 0; j < pets[i]['posts'].length; j++){
+            posts.push(new Post(pets[i].petName, pets[i].pfp, pets[i].images[j], pets[i].posts[j].description))
+        }
     }
-    createPosts()
-})
+    return posts
+    // shuffleArray(posts);
+    
+}
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+
+
+if (localStorage.getItem('pets')){
+    let pets = loadPets();
+    let posts = createPosts(pets)
+    loadPosts(posts)
+}else{
+    fetch('pets.json')
+    .then((response) => response.json())
+    .then((json) => {
+        let pets = []
+        let localPets = []
+        for(let i = 0; i < json.length; i++){
+            pets.push(new Pet(json[i]['name'], json[i]['posts']))
+        }
+        shuffleArray(pets)
+        for(let i = 0; i < json.length; i++){
+            let curPet = {}
+            curPet.petName = pets[i].petName;
+            curPet.posts = pets[i].posts;
+            curPet.pfp = pets[i].pfp;
+            curPet.images = pets[i].images;
+            localPets.push(curPet)
+        }
+        savePets(localPets)
+        let posts = createPosts(pets)
+        loadPosts(posts)
+    })
+}
+
+
+function savePets(pets){
+    let petString = JSON.stringify(pets);
+    localStorage.setItem('pets', petString)
+}
+
+function loadPets(){
+    let pets = JSON.parse(localStorage.getItem('pets'))
+    return pets
+}
