@@ -32,7 +32,14 @@ class Post{
         interactions.innerHTML = "<i class=\"fa fa-heart-o\" style=\"font-size:30px; padding-left:5px; padding-right:5px; cursor:pointer;\"></i><i class=\"fa fa-comment-o\" style=\"font-size:30px; padding-right:5px; padding-left:5px;\"></i>";
         // let obj = this
         interactions.childNodes[0].onclick = function(){
-
+            if(interactions.childNodes[0].classList.contains('fa-heart-o')){
+            interactions.childNodes[0].classList.remove('fa-heart-o');
+            interactions.childNodes[0].classList.add('fa-heart');
+            }
+            else{
+                interactions.childNodes[0].classList.remove('fa-heart');
+                interactions.childNodes[0].classList.add('fa-heart-o');
+            }
         };
 
         let caption = post.appendChild(document.createElement("div"));
