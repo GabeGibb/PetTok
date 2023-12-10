@@ -41,7 +41,7 @@ class Post{
         captionText.classList.add("captionText");
         captionText.innerHTML = this.description;
 
-        document.body.append(post)
+        document.getElementById('posts').append(post)
     }
 
     likePost(){ 
