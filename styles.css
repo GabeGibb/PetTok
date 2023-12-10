@@ -78,6 +78,18 @@
     color:#B81B47;
 }
 .captionText{
-    left: 5px;
+    left: 10px;
     position:relative;
+}
+.caption{
+    display:flex;
+    flex-direction:row;
+    left:5px;
+    position:relative;
+    align-items:center;
+}
+.captionUser{
+    color:#2E5EAA;
+    font-family: 'Nunito', sans-serif;
+    
 }

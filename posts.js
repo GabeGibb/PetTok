@@ -44,6 +44,9 @@ class Post{
 
         let caption = post.appendChild(document.createElement("div"));
         caption.classList.add("caption");
+        let captionUser = caption.appendChild(document.createElement('p'));
+        captionUser.classList.add("captionUser");
+        captionUser.innerHTML = "@" + this.name;
         let captionText = caption.appendChild(document.createElement("p"));
         captionText.classList.add("captionText");
         captionText.innerHTML = this.description;
@@ -51,9 +54,6 @@ class Post{
         document.getElementById('posts').append(post)
     }
 
-    likePost(){ 
-        console.log(this)
-    }
 }
 let posts = []
 
