@@ -44,6 +44,15 @@ class Post{
                 interactions.childNodes[0].classList.add('fa-heart-o');
             }
         };
+        interactions.childNodes[1].onclick = function(){
+            console.log(post.getElementsByClassName("petpic")[0])
+            let petPic = post.getElementsByClassName("petpic")[0]
+            petPic.classList.add("hidePic");
+            console.log(petPic.parentElement)
+            let commentDiv = petPic.parentElement.appendChild(document.createElement('div'));
+            commentDiv.classList.add("commentDiv");
+            // petPic.styling.visibility = "hidden";
+        }
 
         let caption = post.appendChild(document.createElement("div"));
         caption.classList.add("caption");
