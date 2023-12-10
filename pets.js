@@ -12,7 +12,8 @@ class Post{
         let post = document.createElement("div");
         post.classList.add("post");
 
-        let profile = post.appendChild(document.createElement('div'));
+        let profile = post.appendChild(document.createElement('a'));
+        profile.href = "profile.html?name=" + this.name;
         profile.classList.add("profile");
         let pfp = profile.appendChild(document.createElement("img"));
         pfp.classList.add('pfp');
@@ -44,7 +45,8 @@ class Post{
 
         let caption = post.appendChild(document.createElement("div"));
         caption.classList.add("caption");
-        let captionUser = caption.appendChild(document.createElement('p'));
+        let captionUser = caption.appendChild(document.createElement('a'));
+        captionUser.href = "profile.html?name=" + this.name;
         captionUser.classList.add("captionUser");
         captionUser.innerHTML = "@" + this.name;
         let captionText = caption.appendChild(document.createElement("p"));
@@ -62,9 +64,12 @@ class Pet{
         this.posts = posts;
         this.pfp = 'pets/' + this.petName + '0.jpg';
         this.images = []
+        this.liked = []
         for (let i = 1; i < this.posts.length + 1; i++){
             this.images.push('pets/' + this.petName + i + '.jpg')
+            this.liked.push(false)
         }
+        
 
     }
 }
@@ -78,8 +83,8 @@ function createPosts(pets){
             posts.push(new Post(pets[i].petName, pets[i].pfp, pets[i].images[j], pets[i].posts[j].description))
         }
     }
+    shuffleArray(posts);
     return posts
-    // shuffleArray(posts);
     
 }
 function shuffleArray(array) {
@@ -105,14 +110,12 @@ if (localStorage.getItem('pets')){
         let localPets = []
         for(let i = 0; i < json.length; i++){
             pets.push(new Pet(json[i]['name'], json[i]['posts']))
-        }
-        shuffleArray(pets)
-        for(let i = 0; i < json.length; i++){
             let curPet = {}
             curPet.petName = pets[i].petName;
             curPet.posts = pets[i].posts;
             curPet.pfp = pets[i].pfp;
             curPet.images = pets[i].images;
+            curPet.liked = pets[i].liked;
             localPets.push(curPet)
         }
         savePets(localPets)
