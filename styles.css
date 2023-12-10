@@ -18,8 +18,11 @@
     position:relative;
 }
 .name{
-    left:8px;
+    left:15px;
     position: relative;
+    color:#2E5EAA;
+    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Orbitron', sans-serif; */
 }
 .profile{
     display:flex;
@@ -57,4 +60,8 @@
 }
 .fa-heart{
     color:#B81B47;
+}
+.captionText{
+    left: 5px;
+    position:relative;
 }

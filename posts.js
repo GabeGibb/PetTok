@@ -55,15 +55,6 @@ class Post{
         console.log(this)
     }
 }
-
-// function likePost(){
-//     alert("hai");
-//     console.log("a")
-// }
-
-// dexter0 = new Post("Dexter", 'pets/dexter0.jpg', 'pets/dexter0.jpg', "dexter")
-// ollie0 = new Post("Ollie", "pets/ollie0.jpg", "pets/ollie0.jpg", "bork")
-
 let posts = []
 
 function createPosts(){
