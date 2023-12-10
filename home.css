@@ -3,56 +3,89 @@ body, html {
     margin: 0;
   }
 body{
+    background: url(home/background.png);
     background-size:cover;
     background-repeat:no-repeat;
-    background-position: center;
+    background-position: center center;
     background-attachment:fixed;
-    background: url(home/background.png);
     position:relative;
+    overflow:hidden;
 }
 .title{
     height:10%;
     margin:auto;
     display:flex;
     position:relative;
-    top:15px;
+    top:25px;
 }
 .clouds{
-    /* position:relative;
-    top:-700px; */
+    position:absolute;
     margin:auto;
     display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 90vh;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    width:100%;
+    /* box-sizing: border-box; */
 }
 .clouds img{
     /* height:10%; */
-    width:30%;
+    width:20%;
 }
 #cloud1{
-    /* position:relative;
-    top: -80px; */
-    position: absolute;
-    left: 100%;
-    top: 150px;
-    animation: moveFirst 5s linear .2s;
-    animation-iteration-count: 1;
-    width: 150px;
-    z-index:10;
+    position: relative;
+    left:0;
+    animation: float 6s ease-in-out infinite;
+
+}
+#cloud2{
+    position:relative;
+    left:60%;
+    animation: float2 6s ease-in-out infinite;
+}
+#cloud3{
+    left:15%;
+    animation: float 8s ease-in-out infinite;
+    position:relative;
+}
+#cloud4{
+    left:80%;
+    animation: float2 7s ease-in-out infinite;
+    position:relative;
+}
+#cloud5{
+    left: 15%;
+    position:relative;
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+	0% {
+		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
+		transform: translatey(0px);
+	}
+	50% {
+		/* box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2); */
+		transform: translatey(-20px);
+	}
+	100% {
+		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
+		transform: translatey(0px);
+	}
 }
 
-@-webkit-keyframes move {
-    from {
-      left: -30%;
-    }
-    to {
-      left: 100%;
-    }
-  }
-  
-  @-webkit-keyframes moveFirst {
-    from {
-      left: 50%;
-    }
-    to {
-      left: 100%;
-    }
-  }
+@keyframes float2 {
+	0% {
+		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
+		transform: translatey(-20px);
+	}
+	50% {
+		/* box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2); */
+		transform: translatey(-00px);
+	}
+	100% {
+		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
+		transform: translatey(-20px);
+	}
+}
