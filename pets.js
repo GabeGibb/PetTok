@@ -1,9 +1,11 @@
 class Post{
-    constructor(name, pfp, petpic, description){
+    constructor(name, pfp, petpic, description, comments, liked){
         this.name = name;
         this.pfp = pfp;
         this.petpic = petpic;
         this.description = description;
+        this.comments = comments;
+        this.liked = liked;
         // this.createPost();
     }
 
@@ -64,10 +66,10 @@ class Pet{
         this.posts = posts;
         this.pfp = 'pets/' + this.petName + '0.jpg';
         this.images = []
-        this.liked = []
+        // this.liked = []
         for (let i = 1; i < this.posts.length + 1; i++){
             this.images.push('pets/' + this.petName + i + '.jpg')
-            this.liked.push(false)
+            // this.liked.push(false)
         }
         
 
@@ -78,12 +80,32 @@ class Pet{
 
 function createPosts(pets){
     let posts = []
-    for (let i = 0; i < pets.length; i++){
-        for(let j = 0; j < pets[i]['posts'].length; j++){
-            posts.push(new Post(pets[i].petName, pets[i].pfp, pets[i].images[j], pets[i].posts[j].description))
+    if (localStorage.getItem('posts')){
+        posts = loadPosts()
+        for (let i = 0; i < posts.length; i++){
+            posts[i] = new Post(posts[i].name, posts[i].pfp, posts[i].petpic, posts[i].description, posts[i].comments, posts[i].liked)
         }
+    }else{
+        for (let i = 0; i < pets.length; i++){
+            for(let j = 0; j < pets[i]['posts'].length; j++){
+                posts.push(new Post(pets[i].petName, pets[i].pfp, pets[i].images[j], pets[i].posts[j].description, pets[i].posts[j].comments, false))
+            }
+        }
+        shuffleArray(posts);
+        let localPosts = []
+        for (let i = 0; i < posts.length; i++){
+            let curPost = {}
+            curPost.name = posts[i].name;
+            curPost.pfp = posts[i].pfp;
+            curPost.petpic = posts[i].petpic;
+            curPost.description = posts[i].description;
+            curPost.comments = posts[i].comments;
+            curPost.liked = posts[i].liked
+            localPosts.push(curPost)
+        }
+        savePosts(localPosts)
+
     }
-    shuffleArray(posts);
     return posts
     
 }
@@ -98,10 +120,10 @@ function shuffleArray(array) {
 
 
 
-if (localStorage.getItem('pets')){
+if (!localStorage.getItem('pets')){
     let pets = loadPets();
     let posts = createPosts(pets)
-    loadPosts(posts)
+    showPosts(posts)
 }else{
     fetch('pets.json')
     .then((response) => response.json())
@@ -115,12 +137,12 @@ if (localStorage.getItem('pets')){
             curPet.posts = pets[i].posts;
             curPet.pfp = pets[i].pfp;
             curPet.images = pets[i].images;
-            curPet.liked = pets[i].liked;
+            // curPet.liked = pets[i].liked;
             localPets.push(curPet)
         }
         savePets(localPets)
         let posts = createPosts(pets)
-        loadPosts(posts)
+        showPosts(posts)
     })
 }
 
@@ -133,4 +155,14 @@ function savePets(pets){
 function loadPets(){
     let pets = JSON.parse(localStorage.getItem('pets'))
     return pets
+}
+
+function savePosts(posts){
+    let postString = JSON.stringify(posts);
+    localStorage.setItem('posts', postString)
+}
+
+function loadPosts(){
+    let posts = JSON.parse(localStorage.getItem('posts'))
+    return posts
 }
