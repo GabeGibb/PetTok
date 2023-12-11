@@ -1,8 +1,14 @@
 body{
-    /* background-color: #948ed7; */
-    background: rgb(93,81,180);
+    /* background: rgb(93,81,180);
     background: radial-gradient(circle, rgba(93,81,180,1) 0%, rgba(223,222,249,1) 100%);
+    background-attachment:fixed; */
+    background: url(home/background.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center center;
     background-attachment:fixed;
+    position:relative;
+    /* overflow:hidden; */
 }
 
 
@@ -116,6 +122,13 @@ body{
     top: 0px;
     display:flex;
     flex-direction:row-reverse;
+    width:100%;
+    justify-content: flex-end;
+    /* border-style:solid; */
+    border-top-style:solid;
+    border-bottom-style:solid;
+    border-width:1px;
+    border-color:gray
 }
 .commentPFP{
     clip-path:circle();
@@ -126,4 +139,11 @@ body{
 .commentRight{
     display:flex;
     flex-direction:column;
+    padding-left:15px;
+}
+.commentUser{
+    font-family: 'Nunito', sans-serif;
+    color:#2E5EAA;
+    top:8px;
+    position:relative;
 }

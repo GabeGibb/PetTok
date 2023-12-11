@@ -1,0 +1,21 @@
+.welcomeMsg{
+    margin:auto;
+
+}
+.aboutMsg{
+    margin:auto;
+}
+.infoDiv{
+    margin:auto;
+    display:flex;
+    position:static;
+    flex-wrap:wrap;
+    flex-direction: column;;
+    background-color: white;
+    width:50%;
+    top:20%;
+    position:relative;
+    z-index: 50;
+    border-radius: 10px;
+    /* height:50%; */
+}

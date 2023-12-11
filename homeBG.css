@@ -12,7 +12,7 @@ body{
     overflow:hidden;
 }
 .title{
-    height:10%;
+    height:80px;
     margin:auto;
     display:flex;
     position:relative;
