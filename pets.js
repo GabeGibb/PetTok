@@ -8,7 +8,9 @@ class Post{
         this.liked = liked;
         // this.createPost();
     }
-
+    showComments(){
+        console.log("meow")
+    }
     createPost(){
 
         let post = document.createElement("div");
@@ -44,15 +46,11 @@ class Post{
                 interactions.childNodes[0].classList.add('fa-heart-o');
             }
         };
-        interactions.childNodes[1].onclick = function(){
-            console.log(post.getElementsByClassName("petpic")[0])
-            let petPic = post.getElementsByClassName("petpic")[0]
-            petPic.classList.add("hidePic");
-            console.log(petPic.parentElement)
-            let commentDiv = petPic.parentElement.appendChild(document.createElement('div'));
-            commentDiv.classList.add("commentDiv");
-            // petPic.styling.visibility = "hidden";
-        }
+
+        // console.log(post.getElementsByClassName("fa-comment-o"))
+        // interactions.childNodes[1].onclick=function(){this.showComments()}
+        // this.showComments();
+
 
         let caption = post.appendChild(document.createElement("div"));
         caption.classList.add("caption");
@@ -65,8 +63,10 @@ class Post{
         captionText.innerHTML = this.description;
 
         document.getElementById('posts').append(post)
-    }
 
+        
+    }
+    
 }
 
 class Pet{

@@ -93,3 +93,7 @@
 .hidePic{
     visibility:hidden;
 }
+.commentPic{
+    clip-path:circle();
+    width: 50px;
+}
