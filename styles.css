@@ -93,8 +93,6 @@
 }
 .hidePic{
     visibility:hidden;
-    /* display: none; */
-    /* position: absolute; */
 }
 .commentPic{
     clip-path:circle();
@@ -103,7 +101,7 @@
 .pic{
     position: relative;
 }
-.comment{
+.comments{
     position:absolute;
     /* left: 0px; */
     top: 0px;

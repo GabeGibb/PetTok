@@ -47,7 +47,25 @@ class Post{
         };
 
         interactions.childNodes[1].onclick = function(){
-            obj.showComments(interactions.parentElement);
+            obj.toggleComments(interactions.parentElement);
+        }
+
+        let picDiv = (interactions.parentElement.childNodes[1])
+        let comments = document.createElement("div");
+        comments.classList.add("comments")
+        comments.classList.add("hidePic")
+        picDiv.appendChild(comments);
+        for(let i = 0; i < this.comments.length; i++){
+            let comment = comments.appendChild(document.createElement("div"));
+            comment.classList.add("comment");
+            let commentUser = comment.appendChild(document.createElement('a'));
+            commentUser.href = "profile.html?name=" + this.comments[i].name;
+            commentUser.classList.add("commentUser");
+            commentUser.innerHTML = "@" + this.comments[i].name;
+            let commentText = comment.appendChild(document.createElement("p"));
+            commentText.classList.add("commentText");
+            commentText.innerHTML = this.comments[i].comment;
+
         }
 
         // console.log(post.getElementsByClassName("fa-comment-o"))
@@ -69,31 +87,16 @@ class Post{
 
         
     }
-    showComments(post){
-        //TODO: somewhere else should make the comments, 
-        //showComments should really just toggle the visibility of the already made div
-
+    toggleComments(post){
         let picDiv = (post.childNodes[1])
-        picDiv.childNodes[0].classList.add("hidePic")
-        //TODO: Put all comments in a comments container
-        for(let i = 0; i < this.comments.length; i++){
-            
-            let comment = picDiv.appendChild(document.createElement("div"));
-            comment.classList.add("comment");
-            let commentUser = comment.appendChild(document.createElement('a'));
-            commentUser.href = "profile.html?name=" + this.comments[i].name;
-            commentUser.classList.add("commentUser");
-            commentUser.innerHTML = "@" + this.comments[i].name;
-            let commentText = comment.appendChild(document.createElement("p"));
-            commentText.classList.add("commentText");
-            commentText.innerHTML = this.comments[i].comment;
-
+        if (!picDiv.childNodes[0].classList.contains('hidePic')){//if pic not hidden show comments
+            picDiv.childNodes[0].classList.add("hidePic")
+            picDiv.childNodes[1].classList.remove("hidePic")
+        }else{ //hide comments
+            picDiv.childNodes[1].classList.add("hidePic")
+            picDiv.childNodes[0].classList.remove("hidePic")
         }
 
-        // let commentPic = picDiv.appendChild(document.createElement("img"))
-        // commentPic.classList.add("commentPic");
-
-       
     }
 }
 
@@ -103,10 +106,9 @@ class Pet{
         this.posts = posts;
         this.pfp = 'pets/' + this.petName + '0.jpg';
         this.images = []
-        // this.liked = []
         for (let i = 1; i < this.posts.length + 1; i++){
             this.images.push('pets/' + this.petName + i + '.jpg')
-            // this.liked.push(false)
+            
         }
         
 
@@ -129,18 +131,7 @@ function createPosts(pets){
             }
         }
         shuffleArray(posts);
-        let localPosts = []
-        for (let i = 0; i < posts.length; i++){
-            let curPost = {}
-            curPost.name = posts[i].name;
-            curPost.pfp = posts[i].pfp;
-            curPost.petpic = posts[i].petpic;
-            curPost.description = posts[i].description;
-            curPost.comments = posts[i].comments;
-            curPost.liked = posts[i].liked
-            localPosts.push(curPost)
-        }
-        savePosts(localPosts)
+        savePosts(posts)
 
     }
     return posts
@@ -157,7 +148,7 @@ function shuffleArray(array) {
 
 
 
-if (!localStorage.getItem('pets')){
+if (localStorage.getItem('pets')){
     let pets = loadPets();
     let posts = createPosts(pets)
     showPosts(posts)
@@ -195,7 +186,18 @@ function loadPets(){
 }
 
 function savePosts(posts){
-    let postString = JSON.stringify(posts);
+    let localPosts = []
+    for (let i = 0; i < posts.length; i++){
+        let curPost = {}
+        curPost.name = posts[i].name;
+        curPost.pfp = posts[i].pfp;
+        curPost.petpic = posts[i].petpic;
+        curPost.description = posts[i].description;
+        curPost.comments = posts[i].comments;
+        curPost.liked = posts[i].liked
+        localPosts.push(curPost)
+    }
+    let postString = JSON.stringify(localPosts);
     localStorage.setItem('posts', postString)
 }
 
