@@ -66,7 +66,8 @@ class Post{
             comment.classList.add("comment");
             let commentPFP = comments.appendChild(document.createElement('img'));
             commentPFP.classList.add("commentPFP");
-            console.log(comments)
+            let pet = getPetFromName(this.comments[i].name)
+            commentPFP.src = pet.pfp;
             let commentUser = comment.appendChild(document.createElement('a'));
             commentUser.href = "profile.html?name=" + this.comments[i].name;
             commentUser.classList.add("commentUser");
@@ -119,12 +120,20 @@ class Pet{
             this.images.push('pets/' + this.petName + i + '.jpg')
             
         }
-        
-
     }
 }
 
 let posts = []
+let pets = []
+
+function getPetFromName(petName){
+    for(let i = 0; i < pets.length; i++){
+        if (pets[i].petName == petName){
+            return pets[i];
+        }
+    }
+
+}
 
 function createPosts(pets){
     // let posts = []
@@ -159,14 +168,14 @@ function shuffleArray(array) {
 
 
 if (localStorage.getItem('pets')){
-    let pets = loadPets();
+    pets = loadPets();
     posts = createPosts(pets)
     showPosts(posts)
 }else{
     fetch('pets.json')
     .then((response) => response.json())
     .then((json) => {
-        let pets = []
+        pets = []
         let localPets = []
         for(let i = 0; i < json.length; i++){
             pets.push(new Pet(json[i]['name'], json[i]['posts']))
@@ -191,7 +200,7 @@ function savePets(pets){
 }
 
 function loadPets(){
-    let pets = JSON.parse(localStorage.getItem('pets'))
+    pets = JSON.parse(localStorage.getItem('pets'))
     return pets
 }
 
