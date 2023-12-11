@@ -4,15 +4,20 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "hungry",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "peanut", "comment": "cute"},
+                    {"name": "tofu", "comment": "wna grab sum food?"},
+                    {"name": "ava", "comment": "if you pay :3"},
+                    {"name": "tofu", "comment": "nvm"}
                 ]
             },
             {
-                "description": ":3",
+                "description": "i cant believe they made logs from fortnite a real thing",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "miso", "comment": "thats crazy"},
+                    {"name": "larson", "comment": "this is the stupidest thing i've ever read"},
+                    {"name": "dexter", "comment": "cute"}
                 ]
             }
         ]
@@ -64,9 +69,11 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "hello!",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "shelby", "comment": "Rest in peace <3"},
+                    {"name": "dexter", "comment": "rip gomago"},
+                    {"name": "sesame", "comment": "rest in peace, you will be missed"}
                 ]
             }
         ]
@@ -88,9 +95,15 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "goodnight!",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "dexter", "comment": "goodnight"},
+                    {"name": "panda", "comment": "goodnight"},
+                    {"name": "mimi", "comment": "gn"},
+                    {"name": "larson", "comment": "gn!"},
+                    {"name": "pepper", "comment": "Goodnight margot"},
+                    {"name": "sesame", "comment": "GN"},
+                    {"name": "ava", "comment": "goodnight"}
                 ]
             }
         ]
@@ -100,9 +113,10 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "woke up lookin like this wyd",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "shelby", "comment": "i could easily beat you up"},
+                    {"name": "bao", "comment": "gotta agree with shelby on this one"}
                 ]
             }
         ]
@@ -112,21 +126,25 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "got any games on ur phone?",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "shelby", "comment": "Hop on fortnite"},
+                    {"name": "ollie", "comment": "Yo can I join"},
+                    {"name": "larson", "comment": "im on"}
                 ]
             },
             {
-                "description": ":3",
+                "description": "on some crazy catnip right now.. woah",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "dexter", "comment": "we gotta hang out soon"},
+                    {"name": "bao", "comment": "got any left?"}
                 ]
             },
             {
-                "description": ":3",
+                "description": "had too much catnip..",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "bao", "comment": "hmu"},
+                    {"name": "ollie", "comment": "bro thats crazy"}
                 ]
             }
         ]
@@ -261,10 +279,17 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "1",
                 "comments": [
                     {"name": "shelby", "comment": ":3"},
                     {"name": "dexter", "comment": "ur fat"}
+                ]
+            },
+            {
+                "description": "bro keeps eating my food",
+                "comments": [
+                    {"name": "dexter", "comment": "im literally helping you"},
+                    {"name": "bao", "comment": "probably a good thing"}
                 ]
             },
             {
@@ -275,14 +300,7 @@
                 ]
             },
             {
-                "description": ":3",
-                "comments": [
-                    {"name": "shelby", "comment": ":3"},
-                    {"name": "dexter", "comment": "ur fat"}
-                ]
-            },
-            {
-                "description": ":3",
+                "description": ":4",
                 "comments": [
                     {"name": "shelby", "comment": ":3"},
                     {"name": "dexter", "comment": "ur fat"}
@@ -295,9 +313,11 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "camping!!!",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "shelby", "comment": "looks fun"},
+                    {"name": "miso", "comment": "woahhhh"},
+                    {"name": "oreo", "comment": "tfti"}
                 ]
             }
         ]
