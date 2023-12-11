@@ -1,0 +1,12 @@
+#pfp{
+    width: 300px;
+    max-width: 90%;
+    border-radius: 50%;
+    aspect-ratio: 1;
+
+}
+#profile{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
