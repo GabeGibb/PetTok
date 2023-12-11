@@ -60,7 +60,7 @@ class Post{
             comment.classList.add("comment");
             let commentPFP = comments.appendChild(document.createElement('img'));
             commentPFP.classList.add("commentPFP");
-            console.log(comments)
+            console.log(comments) // add pfp here
             let commentUser = comment.appendChild(document.createElement('a'));
             commentUser.href = "profile.html?name=" + this.comments[i].name;
             commentUser.classList.add("commentUser");
