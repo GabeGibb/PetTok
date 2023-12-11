@@ -59,17 +59,25 @@ class Post{
         let picDiv = (interactions.parentElement.childNodes[1])
         let comments = document.createElement("div");
         comments.classList.add("comments")
+        let commentTitle = comments.appendChild(document.createElement("p"));
+        commentTitle.classList.add("commentTitle");
+        commentTitle.innerHTML = "Comments"
         comments.classList.add("hidePic")
         picDiv.appendChild(comments);
+        // picDiv.append(commentTitle);
         for(let i = 0; i < this.comments.length; i++){
             let comment = comments.appendChild(document.createElement("div"));
             comment.classList.add("comment");
-            let commentPFP = comments.appendChild(document.createElement('img'));
+            let commentWhole = comment.appendChild(document.createElement("div"));
+            commentWhole.classList.add("commentWhole")
+            let commentPFP = commentWhole.appendChild(document.createElement('img'));
             commentPFP.classList.add("commentPFP");
             let pet = getPetFromName(this.comments[i].name)
             commentPFP.src = pet.pfp;
 
-            let commentRight = comment.appendChild(document.createElement('div'));
+            // let commentWhole = comment.appendChild(document.createElement("div"));
+            // commentWhole.classList.add("commentWhole")
+            let commentRight = commentWhole.appendChild(document.createElement('div'));
             commentRight.classList.add("commentRight")
             let commentUser = commentRight.appendChild(document.createElement('a'));
             commentUser.href = "profile.html?name=" + this.comments[i].name;
@@ -78,8 +86,7 @@ class Post{
             let commentText = commentRight.appendChild(document.createElement("p"));
             commentText.classList.add("commentText");
             commentText.innerHTML = this.comments[i].comment;
-            // console.log(this.comments)
-
+            
         }
 
 
