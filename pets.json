@@ -13,7 +13,7 @@
                 ]
             },
             {
-                "description": "i cant believe they made logs from fortnite a real thing",
+                "description": "they made logs from fortnite a real thing",
                 "comments": [
                     {"name": "miso", "comment": "thats crazy"},
                     {"name": "larson", "comment": "this is the stupidest thing i've ever read"},
@@ -27,9 +27,11 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "me and my best fren",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "oreo", "comment": "i thought i was your best friend"},
+                    {"name": "bao", "comment": "u were until u broke our litter box"},
+                    {"name": "sesame", "comment": "L oreo"}
                 ]
             }
         ]
@@ -39,15 +41,17 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "ava told a funny joke",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "shelby", "comment": "what was it"},
+                    {"name": "ava", "comment": "inside joke you wouldn't get it"},
+                    {"name": "shelby", "comment": "..."}
                 ]
             },
             {
-                "description": ":3",
+                "description": "me and my best friend!",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "ava", "comment": "thats me!!"}
                 ]
             }
         ]
@@ -57,9 +61,12 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "i hate my roommate",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "shelby", "comment": "why!!!"},
+                    {"name": "dexter", "comment": "STOP EATING MY FOOD"},
+                    {"name": "shelby", "comment": "u should've eaten faster then"}
+                    
                 ]
             }
         ]
@@ -209,7 +216,8 @@
             {
                 "description": ":3",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "peanut", "comment": "hi ily paige"},
+                    {"name": "ollie", "comment": "i pooped on that floor earlier hehehe"}
                 ]
             }
         ]
@@ -219,9 +227,11 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "dripped out",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "ollie", "comment": "when u dropping your workout routine?"},
+                    {"name": "booboo", "comment": "need to workout sometime w/ u"},
+                    {"name": "oreo", "comment": "hmu if u ever need a spotter"}
                 ]
             }
         ]
@@ -243,21 +253,32 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "HAI!!!",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "ollie", "comment": "wanna play some roblox"},
+                    {"name": "ollie", "comment": "need someone to play with me"},
+                    {"name": "pepper", "comment": "u suck ollie"},
+                    {"name": "ollie", "comment": "SHUT UP!!!"}
                 ]
             },
             {
-                "description": ":3",
+                "description": "anyone up right now?",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "panda", "comment": "ye get on roblox"},
+                    {"name": "mimi", "comment": "can i join?"},
+                    {"name": "paige", "comment": "i wanna join"},
+                    {"name": "pepper", "comment": "ye ill make a group"},
+                    {"name": "ollie", "comment": "got any space for me?"},
+                    {"name": "ollie", "comment": "guys?"},
+                    {"name": "ollie", "comment": "hello?"}
                 ]
             },
             {
-                "description": ":3",
+                "description": "sunbathing after my walk!!!",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "oreo", "comment": "wana play some roblox?"},
+                    {"name": "pepper", "comment": "k hop on"},
+                    {"name": "oreo", "comment": "yippie!!!"}
                 ]
             }
         ]
@@ -267,9 +288,9 @@
         "posts": 
         [
             {
-                "description": ":3",
+                "description": "hugs!",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"}
+                    {"name": "bao", "comment": "hey thats me!!!"}
                 ]
             }
         ]
@@ -279,10 +300,11 @@
         "posts": 
         [
             {
-                "description": "1",
+                "description": "me and my gf <3",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"},
-                    {"name": "dexter", "comment": "ur fat"}
+                    {"name": "bao", "comment": "dexter pls take her away from him"},
+                    {"name": "bao", "comment": "he might eat her next"},
+                    {"name": "dexter", "comment": "on it"}
                 ]
             },
             {
@@ -295,15 +317,17 @@
             {
                 "description": ":3",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"},
-                    {"name": "dexter", "comment": "ur fat"}
+                    {"name": "dexter", "comment": "please stop walking in the middle of the night"},
+                    {"name": "dexter", "comment": "i literally wake up from the house shaking"}
+                    
                 ]
             },
             {
-                "description": ":4",
+                "description": "u r wat u eat",
                 "comments": [
-                    {"name": "shelby", "comment": ":3"},
-                    {"name": "dexter", "comment": "ur fat"}
+                    {"name": "dexter", "comment": "ur fat"},
+                    {"name": "sesame", "comment": "how is this even possible"},
+                    {"name": "miso", "comment": "everytime you walk the earth shakes"}
                 ]
             }
         ]
