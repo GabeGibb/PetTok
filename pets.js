@@ -70,10 +70,14 @@ class Post{
         
     }
     showComments(post){
+        //TODO: somewhere else should make the comments, 
+        //showComments should really just toggle the visibility of the already made div
+
         let picDiv = (post.childNodes[1])
         picDiv.childNodes[0].classList.add("hidePic")
+        //TODO: Put all comments in a comments container
         for(let i = 0; i < this.comments.length; i++){
-            console.log(this.comments)
+            
             let comment = picDiv.appendChild(document.createElement("div"));
             comment.classList.add("comment");
             let commentUser = comment.appendChild(document.createElement('a'));
