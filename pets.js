@@ -31,18 +31,24 @@ class Post{
 
         let interactions = post.appendChild(document.createElement("interactions"));
         interactions.classList.add("interactions");
-        interactions.innerHTML = "<i class=\"fa fa-heart-o\" style=\"font-size:30px; padding-left:5px; padding-right:5px; cursor:pointer;\"></i><i class=\"fa fa-comment-o\" style=\"font-size:30px; padding-right:5px; padding-left:5px;\"></i>";
+        if (!this.liked){
+            interactions.innerHTML = "<i class=\"fa fa-heart-o\" style=\"font-size:30px; padding-left:5px; padding-right:5px; cursor:pointer;\"></i><i class=\"fa fa-comment-o\" style=\"font-size:30px; padding-right:5px; padding-left:5px;\"></i>";
+        }else{
+            interactions.innerHTML = "<i class=\"fa fa-heart\" style=\"font-size:30px; padding-left:5px; padding-right:5px; cursor:pointer;\"></i><i class=\"fa fa-comment-o\" style=\"font-size:30px; padding-right:5px; padding-left:5px;\"></i>";
+        }
         let obj = this
         interactions.childNodes[0].onclick = function(){
-            if(interactions.childNodes[0].classList.contains('fa-heart-o')){
+            if(!obj.liked){
                 interactions.childNodes[0].classList.remove('fa-heart-o');
                 interactions.childNodes[0].classList.add('fa-heart');
                 obj.liked = true;
+                savePosts()
             }
             else{
                 interactions.childNodes[0].classList.remove('fa-heart');
                 interactions.childNodes[0].classList.add('fa-heart-o');
                 obj.liked = false;
+                savePosts()
             }
         };
 
@@ -60,7 +66,8 @@ class Post{
             comment.classList.add("comment");
             let commentPFP = comments.appendChild(document.createElement('img'));
             commentPFP.classList.add("commentPFP");
-            console.log(comments) // add pfp here
+            let pet = getPetFromName(this.comments[i].name)
+            commentPFP.src = pet.pfp;
             let commentUser = comment.appendChild(document.createElement('a'));
             commentUser.href = "profile.html?name=" + this.comments[i].name;
             commentUser.classList.add("commentUser");
@@ -113,20 +120,29 @@ class Pet{
             this.images.push('pets/' + this.petName + i + '.jpg')
             
         }
-        
-
     }
 }
 
+let posts = []
+let pets = []
 
+function getPetFromName(petName){
+    for(let i = 0; i < pets.length; i++){
+        if (pets[i].petName == petName){
+            return pets[i];
+        }
+    }
+
+}
 
 function createPosts(pets){
-    let posts = []
+    // let posts = []
     if (localStorage.getItem('posts')){
         posts = loadPosts()
         for (let i = 0; i < posts.length; i++){
             posts[i] = new Post(posts[i].name, posts[i].pfp, posts[i].petpic, posts[i].description, posts[i].comments, posts[i].liked)
         }
+        console.log(posts)
     }else{
         for (let i = 0; i < pets.length; i++){
             for(let j = 0; j < pets[i]['posts'].length; j++){
@@ -152,14 +168,14 @@ function shuffleArray(array) {
 
 
 if (localStorage.getItem('pets')){
-    let pets = loadPets();
-    let posts = createPosts(pets)
+    pets = loadPets();
+    posts = createPosts(pets)
     showPosts(posts)
 }else{
     fetch('pets.json')
     .then((response) => response.json())
     .then((json) => {
-        let pets = []
+        pets = []
         let localPets = []
         for(let i = 0; i < json.length; i++){
             pets.push(new Pet(json[i]['name'], json[i]['posts']))
@@ -172,7 +188,7 @@ if (localStorage.getItem('pets')){
             localPets.push(curPet)
         }
         savePets(localPets)
-        let posts = createPosts(pets)
+        posts = createPosts(pets)
         showPosts(posts)
     })
 }
@@ -184,12 +200,13 @@ function savePets(pets){
 }
 
 function loadPets(){
-    let pets = JSON.parse(localStorage.getItem('pets'))
+    pets = JSON.parse(localStorage.getItem('pets'))
     return pets
 }
 
-function savePosts(posts){
+function savePosts(){
     let localPosts = []
+    console.log(posts)
     for (let i = 0; i < posts.length; i++){
         let curPost = {}
         curPost.name = posts[i].name;
@@ -205,6 +222,6 @@ function savePosts(posts){
 }
 
 function loadPosts(){
-    let posts = JSON.parse(localStorage.getItem('posts'))
+    posts = JSON.parse(localStorage.getItem('posts'))
     return posts
 }
