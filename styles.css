@@ -11,16 +11,6 @@ body{
     /* overflow:hidden; */
 }
 
-
-#canvas{
-    border-width:10px;
-    border-color:red;
-    border-style:solid;
-    /* width:352px;
-    height:138px; */
-    margin:auto;
-}
-
 #trackbutton{
     margin:auto;
 
@@ -158,6 +148,40 @@ body{
     /* border-bottom-style:solid; */
     border-width:1px;
     border-color:gray;
+}
+
+#content{
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+#webcam{
+    display: flex;
+    /* justify-content: center; */
+    /* flex-direction: row; */
+}
+#camContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin: auto;
+    top: 25%;
+    /* left:0; */
+}
+
+#myvideo{
+    display: none;
+}
+#canvas{
+    margin: auto;
+    border-width:10px;
+    border-color:red;
+    border-style:solid;
+    /* width: fit-content; */
+    width: 20vw;
+    height: 20vw;
+    
 }
 .captionText{
     font-family: sans-serif;
