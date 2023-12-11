@@ -19,15 +19,15 @@ let model = null;
 const modelParams = {
     flipHorizontal: false,   // flip e.g for video  
     maxNumBoxes: 4,        // maximum number of boxes to detect
-    iouThreshold: 0.4,      // ioU threshold for non-max suppression
-    scoreThreshold: 0.5,    // confidence threshold for predictions.
+    iouThreshold: 0.5,      // ioU threshold for non-max suppression
+    scoreThreshold: 0.8,    // confidence threshold for predictions.
 }
 
 // Load the model.
 handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
-    updateNote.innerText = "Loaded Model!"
+    // updateNote.innerText = "Loaded Model!"
     // trackButton.disabled = false
     toggleVideo()
 });
@@ -35,7 +35,7 @@ handTrack.load(modelParams).then(lmodel => {
 
 function startVideo() {
     handTrack.startVideo(video).then(function (status) {
-        console.log("video started", status);
+        // console.log("video started", status);
         if (status) {
             updateNote.innerText = "Video started. Now tracking"
             isVideo = true
@@ -79,14 +79,17 @@ function runDetection() {
 
         // These are just a few options! What about one hand open and one hand closed!?
 
-        if (openhands > 1) detectedGesture = "Two Open Hands";
-        else if(openhands == 1) detectedGesture = "Open Hand";
+        if (openhands > 1) detectedGesture = "Two Open";
+        else if(openhands == 1) detectedGesture = "Open";
         
-        if (closedhands > 1) detectedGesture = "Two Closed Hands";
-        else if(closedhands == 1) detectedGesture = "Closed Hand";
+        if (closedhands > 1) detectedGesture = "Two Closed";
+        else if(closedhands == 1) detectedGesture = "Closed";
         
-        if (pointing > 1) detectedGesture = "Two Hands Pointing";
-        else if(pointing == 1) detectedGesture = "Hand Pointing";
+        if (pointing > 1) detectedGesture = "Two Pointing";
+        else if(pointing == 1) detectedGesture = "Pointing";
+
+        if (pointing == 1 && closedhands == 1) detectedGesture = "Closed Pointing"
+        if (openhands == 1 && closedhands == 1) detectedGesture = "Open Closed"
         
         // if (pinching > 1) detectedGesture = "Two Hands Pinching";
         // else if(pinching == 1) detectedGesture = "Hand Pinching";
@@ -108,9 +111,38 @@ function runDetection() {
             document.getElementById('gesture').innerText = detectedGesture;
         }
         
-        model.renderPredictions(predictions, canvas, context, video);
+        model.renderPredictions([], canvas, context, video);
+        doAction(detectedGesture);
+
         if (isVideo) {
             requestAnimationFrame(runDetection);
         }
     });
 }
+
+// let pastGesture = ''
+function doAction(){
+    let scrollNum = 5;
+    if (gesture == 'Closed'){
+        window.scrollBy(0, scrollNum)
+    }
+    else if (gesture == 'Closed Pointing'){
+        window.scrollBy(0, -scrollNum)
+    }
+    else if (gesture == 'Pointing'){
+        return; //LIKE
+    }
+    else if (gesture == 'Two Pointing'){
+        return; //VIEW PROFILE
+    }
+    else if (gesture == 'Open Hand'){
+        return; //DO NOTHING
+    }
+    else if (gesture == 'Two Open'){
+        return; //VIEW COMMENT
+    }
+    else if (gesture == 'Open Closed'){
+        window.location.href = 'index.html'
+    }
+}
+

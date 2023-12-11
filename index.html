@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/handtrackjs@latest/dist/handtrack.min.js"> </script>
     <script src="index.js" defer></script>
     <script src="pets.js" defer></script>
-    <!-- <script src="handtracker.js" defer></script> -->
+    <script src="handtracker.js" defer></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -16,17 +16,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="webcam">
-        <!-- <button onclick="toggleVideo()" id="trackbutton" type="button">
-            Toggle Video
-        </button> -->
-        <div id="updatenote"> loading model ..</div>
-        <video autoplay="autoplay" id="myvideo"></video>
-        <canvas id="canvas"></canvas>
-        <h1 id="gesture"></h1>
-    </div>
-    <div id="posts">
+    <div id="content">
+        <div id="webcam">
+            <div id="camContent">
+                <button onclick="toggleVideo()" id="trackbutton" type="button">
+                    Toggle Video
+                </button>
+                <div id="updatenote"> loading model ..</div>
+                <video autoplay="autoplay" id="myvideo"></video>
+                <canvas id="canvas"></canvas>
+                <h1 id="gesture"></h1>
+            </div>
+        </div>
+        <div id="posts">
 
+        </div>
     </div>
 </body>
 </html>
