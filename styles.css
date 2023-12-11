@@ -40,12 +40,13 @@
     /* height: fit-content; */
     max-width: 100%;
     max-height: 60vh;
-    aspect-ratio: 3 / 4; /* ↔️ is double the ↕️ */
+    aspect-ratio: 3 / 4;
     margin:auto;
     display:flex;
     object-fit: cover;
 
 }
+
 .post{
     display: flex;
     flex-direction: column;
@@ -92,8 +93,13 @@
 }
 .hidePic{
     visibility:hidden;
+    /* display: none; */
+    /* position: absolute; */
 }
 .commentPic{
     clip-path:circle();
     width: 50px;
+}
+.comment{
+    position:absolute;
 }

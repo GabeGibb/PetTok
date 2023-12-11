@@ -8,9 +8,6 @@ class Post{
         this.liked = liked;
         // this.createPost();
     }
-    showComments(){
-        console.log("meow")
-    }
     createPost(){
 
         let post = document.createElement("div");
@@ -35,17 +32,23 @@ class Post{
         let interactions = post.appendChild(document.createElement("interactions"));
         interactions.classList.add("interactions");
         interactions.innerHTML = "<i class=\"fa fa-heart-o\" style=\"font-size:30px; padding-left:5px; padding-right:5px; cursor:pointer;\"></i><i class=\"fa fa-comment-o\" style=\"font-size:30px; padding-right:5px; padding-left:5px;\"></i>";
-        // let obj = this
+        let obj = this
         interactions.childNodes[0].onclick = function(){
             if(interactions.childNodes[0].classList.contains('fa-heart-o')){
-            interactions.childNodes[0].classList.remove('fa-heart-o');
-            interactions.childNodes[0].classList.add('fa-heart');
+                interactions.childNodes[0].classList.remove('fa-heart-o');
+                interactions.childNodes[0].classList.add('fa-heart');
+                obj.liked = true;
             }
             else{
                 interactions.childNodes[0].classList.remove('fa-heart');
                 interactions.childNodes[0].classList.add('fa-heart-o');
+                obj.liked = false;
             }
         };
+
+        interactions.childNodes[1].onclick = function(){
+            obj.showComments(interactions.parentElement);
+        }
 
         // console.log(post.getElementsByClassName("fa-comment-o"))
         // interactions.childNodes[1].onclick=function(){this.showComments()}
@@ -66,7 +69,28 @@ class Post{
 
         
     }
-    
+    showComments(post){
+        let picDiv = (post.childNodes[1])
+        picDiv.childNodes[0].classList.add("hidePic")
+        for(let i = 0; i < this.comments.length; i++){
+            console.log(this.comments)
+            let comment = picDiv.appendChild(document.createElement("div"));
+            comment.classList.add("comment");
+            let commentUser = comment.appendChild(document.createElement('a'));
+            commentUser.href = "profile.html?name=" + this.comments[i].name;
+            commentUser.classList.add("commentUser");
+            commentUser.innerHTML = "@" + this.comments[i].name;
+            let commentText = comment.appendChild(document.createElement("p"));
+            commentText.classList.add("commentText");
+            commentText.innerHTML = this.comments[i].comment;
+
+        }
+
+        // let commentPic = picDiv.appendChild(document.createElement("img"))
+        // commentPic.classList.add("commentPic");
+
+       
+    }
 }
 
 class Pet{
