@@ -58,6 +58,9 @@ class Post{
         for(let i = 0; i < this.comments.length; i++){
             let comment = comments.appendChild(document.createElement("div"));
             comment.classList.add("comment");
+            let commentPFP = comments.appendChild(document.createElement('img'));
+            commentPFP.classList.add("commentPFP");
+            console.log(comments)
             let commentUser = comment.appendChild(document.createElement('a'));
             commentUser.href = "profile.html?name=" + this.comments[i].name;
             commentUser.classList.add("commentUser");
