@@ -123,25 +123,25 @@ function runDetection() {
 // let pastGesture = ''
 function doAction(){
     let scrollNum = 5;
-    if (gesture == 'Closed'){
+    if (gesture == 'Closed'){ //Scroll down
         window.scrollBy(0, scrollNum)
     }
-    else if (gesture == 'Closed Pointing'){
+    else if (gesture == 'Closed Pointing'){//Scroll up
         window.scrollBy(0, -scrollNum)
     }
-    else if (gesture == 'Pointing'){
-        return; //LIKE
+    else if (gesture == 'Pointing'){//LIKE
+        return; 
     }
-    else if (gesture == 'Two Pointing'){
-        return; //VIEW PROFILE
+    else if (gesture == 'Two Pointing'){//VIEW PROFILE
+        return; 
     }
-    else if (gesture == 'Open Hand'){
-        return; //DO NOTHING
+    else if (gesture == 'Open Hand'){//STOP / DO NOTHING
+        return; 
     }
-    else if (gesture == 'Two Open'){
-        return; //VIEW COMMENT
+    else if (gesture == 'Two Open'){//TOGGLE COMMENTS
+        return; 
     }
-    else if (gesture == 'Open Closed'){
+    else if (gesture == 'Open Closed'){//GO TO MAIN PAGE
         window.location.href = 'index.html'
     }
 }
