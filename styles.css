@@ -114,4 +114,16 @@ body{
     position:absolute;
     /* left: 0px; */
     top: 0px;
+    display:flex;
+    flex-direction:row-reverse;
+}
+.commentPFP{
+    clip-path:circle();
+    width: 50px;
+    left:5px;
+    position:relative;
+}
+.commentRight{
+    display:flex;
+    flex-direction:column;
 }

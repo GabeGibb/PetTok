@@ -68,19 +68,19 @@ class Post{
             commentPFP.classList.add("commentPFP");
             let pet = getPetFromName(this.comments[i].name)
             commentPFP.src = pet.pfp;
-            let commentUser = comment.appendChild(document.createElement('a'));
+
+            let commentRight = comment.appendChild(document.createElement('div'));
+            commentRight.classList.add("commentRight")
+            let commentUser = commentRight.appendChild(document.createElement('a'));
             commentUser.href = "profile.html?name=" + this.comments[i].name;
             commentUser.classList.add("commentUser");
             commentUser.innerHTML = "@" + this.comments[i].name;
-            let commentText = comment.appendChild(document.createElement("p"));
+            let commentText = commentRight.appendChild(document.createElement("p"));
             commentText.classList.add("commentText");
             commentText.innerHTML = this.comments[i].comment;
+            // console.log(this.comments)
 
         }
-
-        // console.log(post.getElementsByClassName("fa-comment-o"))
-        // interactions.childNodes[1].onclick=function(){this.showComments()}
-        // this.showComments();
 
 
         let caption = post.appendChild(document.createElement("div"));
@@ -141,8 +141,8 @@ function createPosts(pets){
         posts = loadPosts()
         for (let i = 0; i < posts.length; i++){
             posts[i] = new Post(posts[i].name, posts[i].pfp, posts[i].petpic, posts[i].description, posts[i].comments, posts[i].liked)
+            console.log(posts[i].comments)
         }
-        console.log(posts)
     }else{
         for (let i = 0; i < pets.length; i++){
             for(let j = 0; j < pets[i]['posts'].length; j++){
@@ -151,7 +151,6 @@ function createPosts(pets){
         }
         shuffleArray(posts);
         savePosts(posts)
-
     }
     return posts
     
@@ -206,7 +205,6 @@ function loadPets(){
 
 function savePosts(){
     let localPosts = []
-    console.log(posts)
     for (let i = 0; i < posts.length; i++){
         let curPost = {}
         curPost.name = posts[i].name;
