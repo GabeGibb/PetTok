@@ -72,9 +72,6 @@ function runDetection() {
             if(p.label == 'open') openhands++;
             if(p.label == 'closed') closedhands++;
             if(p.label == 'point') pointing++;
-            // if(p.label == 'pinch') pinching++;
-            
-            
         }
 
         // These are just a few options! What about one hand open and one hand closed!?
@@ -98,15 +95,15 @@ function runDetection() {
         if (openhands == 0 && closedhands == 0 && pointing == 0)
             detectedGesture = "None";
         
-        let newPredictions = []
-        for (let b of boxes){
-            let dict = {}
-            dict['bbox'] = b;
-            dict['label'] = detectedGesture;
-            dict['class'] = 5
-            dict['score'] = 0.9
-            newPredictions.push(dict);
-        }
+        // let newPredictions = []
+        // for (let b of boxes){
+        //     let dict = {}
+        //     dict['bbox'] = b;
+        //     dict['label'] = detectedGesture;
+        //     dict['class'] = 5
+        //     dict['score'] = 0.9
+        //     newPredictions.push(dict);
+        // }
 
         if (detectedGesture != 'None'){
             document.getElementById('gesture').innerText = detectedGesture;
