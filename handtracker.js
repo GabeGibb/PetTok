@@ -160,7 +160,7 @@ function doAction(gesture){
         curPost.getElementsByClassName('interactions')[0].children[1].click()
     }
     else if (gesture == 'Closed Pointing'){//GO TO MAIN PAGE
-        window.location.href = 'index.html'
+        window.location.href = history.back();
     }
     shouldWait = true;
     setTimeout(() => {
