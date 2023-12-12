@@ -20,7 +20,7 @@ const modelParams = {
     flipHorizontal: false,   // flip e.g for video  
     maxNumBoxes: 4,        // maximum number of boxes to detect
     iouThreshold: 0.5,      // ioU threshold for non-max suppression
-    scoreThreshold: 0.8,    // confidence threshold for predictions.
+    scoreThreshold: 0.7,    // confidence threshold for predictions.
 }
 
 // Load the model.
@@ -90,6 +90,7 @@ function runDetection() {
 
         if (pointing == 1 && closedhands == 1) detectedGesture = "Closed Pointing"
         if (openhands == 1 && closedhands == 1) detectedGesture = "Open Closed"
+        if (openhands == 1 && pointing == 1) detectedGesture = "Open Pointing"
         
         // if (pinching > 1) detectedGesture = "Two Hands Pinching";
         // else if(pinching == 1) detectedGesture = "Hand Pinching";
@@ -120,29 +121,72 @@ function runDetection() {
     });
 }
 
-// let pastGesture = ''
-function doAction(){
-    let scrollNum = 5;
+let postsDivs = document.getElementById('posts').getElementsByClassName('post');
+let currentPostNum = 0;
+
+let pastGesture = ''
+let shouldWait = false;
+function doAction(gesture){
+    if (pastGesture == gesture || shouldWait){
+        return;
+    }else{
+        pastGesture = gesture
+    }
+    // console.log(first)
+    let scrollSettings = { behavior: "smooth", block: "end", inline: "nearest" };
     if (gesture == 'Closed'){ //Scroll down
-        window.scrollBy(0, scrollNum)
+        let index = getCurrentPostNum() + 1;
+        index = Math.min(index, postsDivs.length-1)
+        postsDivs[index].scrollIntoView(scrollSettings)
     }
-    else if (gesture == 'Closed Pointing'){//Scroll up
-        window.scrollBy(0, -scrollNum)
+    else if (gesture == 'Pointing'){//Scroll up
+        let index = getCurrentPostNum() - 1;
+        index = Math.max(index, 0)
+        postsDivs[index].scrollIntoView(scrollSettings)
     }
-    else if (gesture == 'Pointing'){//LIKE
+    else if (gesture == 'Open'){//STOP / DO NOTHING
         return; 
+    }
+    else if (gesture == 'Open Pointing'){//LIKE
+        let index = getCurrentPostNum();
+        let curPost = postsDivs[index]
+        let test = curPost.getElementsByClassName('interactions')[0].children[0].click()
     }
     else if (gesture == 'Two Pointing'){//VIEW PROFILE
         return; 
     }
-    else if (gesture == 'Open Hand'){//STOP / DO NOTHING
-        return; 
-    }
     else if (gesture == 'Two Open'){//TOGGLE COMMENTS
-        return; 
+        let index = getCurrentPostNum();
+        let curPost = postsDivs[index]
+        let test = curPost.getElementsByClassName('interactions')[0].children[1].click()
     }
     else if (gesture == 'Open Closed'){//GO TO MAIN PAGE
         window.location.href = 'index.html'
     }
+    shouldWait = true;
+    setTimeout(() => {
+        shouldWait = false;
+    }, 500);
+
 }
 
+function getCurrentPostNum(){
+    let currentPostNum = 0;
+    for(let i = 0; i < postsDivs.length; i++){
+        var someDiv = postsDivs[i];
+        var distanceToTop = someDiv.getBoundingClientRect().top;
+        if (distanceToTop >= 0){
+            currentPostNum = i;
+            break;
+        }
+    }
+    return currentPostNum;
+}
+
+// window.addEventListener('scroll', function(ev) {
+    
+//     var someDiv = postsDivs[0];
+//     var distanceToTop = someDiv.getBoundingClientRect().top;
+ 
+//     console.log(distanceToTop);
+//  });
