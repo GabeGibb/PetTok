@@ -1,6 +1,6 @@
 body, html {
-    height: 100%;
-    margin: 0;
+    /* height: 100%; */
+    /* margin: 0; */
   }
 body{
     background: url(home/background.png);
@@ -14,9 +14,9 @@ body{
 .title{
     height:80px;
     margin:auto;
-    display:flex;
-    position:relative;
-    top:25px;
+    /* display:flex; */
+    /* position:relative; */
+    /* top:25px; */
 }
 .clouds{
     position:absolute;
