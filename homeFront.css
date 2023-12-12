@@ -1,21 +1,62 @@
 .welcomeMsg{
     margin:auto;
+    font-size:40px;
 
 }
 .aboutMsg{
     margin:auto;
 }
 .infoDiv{
-    margin:auto;
+    /* margin:auto; */
     display:flex;
     position:static;
     flex-wrap:wrap;
     flex-direction: column;;
     background-color: white;
-    width:50%;
+    width:30%;
     top:20%;
-    position:relative;
+    position:absolute;
     z-index: 50;
     border-radius: 10px;
-    /* height:50%; */
+    font-family: 'Nunito', sans-serif;
+    left: 50%;
+    margin-left: -15%;
+}
+.instructions{
+    display:flex;
+    margin:auto;
+    flex-direction: column;
+}
+.instruction{
+    display:flex;
+    flex-direction: row;
+}
+.gesture{
+    position:relative; 
+    padding-right:30px;
+    font-size:30px;
+    top:5px;
+}
+.start{
+    position:absolute;
+    width:20%;
+    left: 50%;
+    margin-left: -10%;
+    background-color: white;
+    border-radius: 10px;
+    top:80%;
+    z-index:50
+}
+.startContent{
+    margin:auto;
+    position:relative;
+    display:flex;
+    justify-content: center;
+}
+.start .action{
+    font-family: 'Nunito', sans-serif;
+}
+.start .gesture{
+    top:5px;
+    position:relative;
 }
