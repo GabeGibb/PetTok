@@ -85,7 +85,7 @@ function runDetection() {
         if (pointing > 1) detectedGesture = "Two Pointing";
         else if(pointing == 1) detectedGesture = "Pointing";
 
-        if (pointing == 1 && closedhands == 1) detectedGesture = "Closed Pointing"
+        // if (pointing == 1 && closedhands == 1) detectedGesture = "Closed Pointing"
         if (openhands == 1 && closedhands == 1) detectedGesture = "Open Closed"
         if (openhands == 1 && pointing == 1) detectedGesture = "Open Pointing"
         
@@ -147,7 +147,10 @@ function doAction(gesture){
     else if (gesture == 'Open Pointing'){//LIKE
         let index = getCurrentPostNum();
         let curPost = postsDivs[index]
-        curPost.getElementsByClassName('interactions')[0].children[0].click()
+        // console.log(curPost.getElementsByClassName('interactions'))
+        if (curPost.getElementsByClassName('interactions').length > 0){
+            curPost.getElementsByClassName('interactions')[0].children[0].click()
+        }
     }
     else if (gesture == 'Open Closed'){//VIEW PROFILE
         let index = getCurrentPostNum();
@@ -157,15 +160,18 @@ function doAction(gesture){
     else if (gesture == 'Two Open'){//TOGGLE COMMENTS
         let index = getCurrentPostNum();
         let curPost = postsDivs[index]
-        curPost.getElementsByClassName('interactions')[0].children[1].click()
+        if (curPost.getElementsByClassName('interactions').length > 0){
+            console.log(curPost.getElementsByClassName('interactions')[0].children[1])
+            curPost.getElementsByClassName('interactions')[0].children[1].click()
+        }
     }
-    else if (gesture == 'Closed Pointing'){//GO TO MAIN PAGE
+    else if (gesture == 'Two Closed'){//GO TO MAIN PAGE
         window.location.href = history.back();
     }
     shouldWait = true;
     setTimeout(() => {
         shouldWait = false;
-    }, 600);
+    }, 500);
 
 }
 
@@ -182,10 +188,3 @@ function getCurrentPostNum(){
     return currentPostNum;
 }
 
-// window.addEventListener('scroll', function(ev) {
-    
-//     var someDiv = postsDivs[0];
-//     var distanceToTop = someDiv.getBoundingClientRect().top;
- 
-//     console.log(distanceToTop);
-//  });

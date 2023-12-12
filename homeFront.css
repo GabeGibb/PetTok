@@ -29,6 +29,7 @@
 .instruction{
     display:flex;
     flex-direction: row;
+    height: 42px;
 }
 .gesture{
     position:relative; 

@@ -144,11 +144,11 @@ function getPetFromName(petName){
 
 function createPosts(pets){
     // let posts = []
-    if (!localStorage.getItem('posts')){
+    if (localStorage.getItem('posts')){
         posts = loadPosts()
         for (let i = 0; i < posts.length; i++){
             posts[i] = new Post(posts[i].name, posts[i].pfp, posts[i].petpic, posts[i].description, posts[i].comments, posts[i].liked)
-            console.log(posts[i].comments)
+            // console.log(posts[i].comments)
         }
     }else{
         for (let i = 0; i < pets.length; i++){
@@ -173,7 +173,7 @@ function shuffleArray(array) {
 
 
 
-if (!localStorage.getItem('pets')){
+if (localStorage.getItem('pets')){
     pets = loadPets();
     posts = createPosts(pets)
     showPosts(posts)

@@ -18,8 +18,10 @@
 </head>
 <body>
     <div id="content">
+        <div></div>
         <div id="webcam">
             <div id="camContent">
+                <img class="title" src="home/title.png">
                 <button onclick="toggleVideo()" id="trackbutton" type="button">
                     Toggle Video
                 </button>
@@ -37,29 +39,22 @@
                         </div>
                         <div class="instruction">
                             <div class="gesture">
-                                <i class="fa fa-hand-grab-o"></i>
                                 <i class="fa fa-hand-pointer-o"></i>
                             </div>
                             <p class="action">Scroll up</p>
                         </div>
                         <div class="instruction">
                             <div class="gesture">
-                                <i class="fa fa-hand-pointer-o"></i>
+                                <i class="fa fa-hand-stop-o"></i>
                             </div>
-                            <p class="action">Like Post</p>
-                        </div>
-                        <div class="instruction">
-                            <div class="gesture">
-                                <i class="fa fa-hand-pointer-o"></i>
-                                <i class="fa fa-hand-pointer-o"></i>
-                            </div>
-                            <p class="action">View Profile</p>
+                            <p class="action">Stop Scrolling</p>
                         </div>
                         <div class="instruction">
                             <div class="gesture">
                                 <i class="fa fa-hand-stop-o"></i>
+                                <i class="fa fa-hand-pointer-o"></i>
                             </div>
-                            <p class="action">Stop Scrolling</p>
+                            <p class="action">Like Post</p>
                         </div>
                         <div class="instruction">
                             <div class="gesture">
@@ -73,7 +68,14 @@
                                 <i class="fa fa-hand-stop-o"></i>
                                 <i class="fa fa-hand-grab-o"></i>
                             </div>
-                            <p class="action">Return to Feed</p>
+                            <p class="action">View Profile</p>
+                        </div>
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-grab-o"></i>
+                                <i class="fa fa-hand-grab-o"></i>
+                            </div>
+                            <p class="action">Return to Previous</p>
                         </div>
                     </div>
                 </div>
@@ -82,6 +84,7 @@
         <div id="posts">
 
         </div>
+        <div></div>
     </div>
 </body>
 </html>
