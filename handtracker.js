@@ -161,12 +161,16 @@ function doAction(gesture){
         let index = getCurrentPostNum();
         let curPost = postsDivs[index]
         if (curPost.getElementsByClassName('interactions').length > 0){
-            console.log(curPost.getElementsByClassName('interactions')[0].children[1])
+            // console.log(curPost.getElementsByClassName('interactions')[0].children[1])
             curPost.getElementsByClassName('interactions')[0].children[1].click()
         }
     }
     else if (gesture == 'Two Closed'){//GO TO MAIN PAGE
-        window.location.href = history.back();
+        if (history.back()){
+            window.location.href = history.back();
+        }else{
+            window.location.href = 'index.html'
+        }
     }
     shouldWait = true;
     setTimeout(() => {
