@@ -61,10 +61,3 @@
     top:5px;
     position:relative;
 }
-
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}

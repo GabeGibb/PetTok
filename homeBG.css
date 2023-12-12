@@ -1,7 +1,9 @@
-body, html {
-    /* height: 100%; */
-    /* margin: 0; */
-  }
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 body{
     background: url(home/background.png);
     background-size:cover;
