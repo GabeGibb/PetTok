@@ -17,7 +17,7 @@ let isVideo = false;
 let model = null;
 
 const modelParams = {
-    flipHorizontal: false,   // flip e.g for video  
+    flipHorizontal: true,   // flip e.g for video  
     maxNumBoxes: 4,        // maximum number of boxes to detect
     iouThreshold: 0.5,      // ioU threshold for non-max suppression
     scoreThreshold: 0.7,    // confidence threshold for predictions.
@@ -165,7 +165,7 @@ function doAction(gesture){
     shouldWait = true;
     setTimeout(() => {
         shouldWait = false;
-    }, 500);
+    }, 600);
 
 }
 
