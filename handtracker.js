@@ -130,7 +130,7 @@ function doAction(gesture){
         pastGesture = gesture
     }
     // console.log(first)
-    let scrollSettings = { behavior: "smooth", block: "end", inline: "nearest" };
+    let scrollSettings = { behavior: "smooth", block: "center", inline: "nearest"};
     if (gesture == 'Closed'){ //Scroll down
         let index = getCurrentPostNum() + 1;
         index = Math.min(index, postsDivs.length-1)
