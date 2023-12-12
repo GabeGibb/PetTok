@@ -118,7 +118,7 @@ function runDetection() {
     });
 }
 
-let postsDivs = document.getElementById('posts').getElementsByClassName('post');
+let postsDivs = document.getElementById('posts').children;
 let currentPostNum = 0;
 
 let pastGesture = ''

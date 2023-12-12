@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
     <script src="https://cdn.jsdelivr.net/npm/handtrackjs@latest/dist/handtrack.min.js"> </script>
     <script src="profile.js" defer></script>
     <script src="pets.js" defer></script>
     <script src="handtracker.js" defer></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="profile.css" />
+    <link rel="stylesheet" type="text/css" href="homeFront.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +28,56 @@
                 <video autoplay="autoplay" id="myvideo"></video>
                 <canvas id="canvas"></canvas>
                 <h1 id="gesture"></h1>
+                <div class="infoDiv">
+                    <div class="instructions">
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-grab-o"></i>
+                            </div>
+                            <p class="action">Scroll down</p>
+                        </div>
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-grab-o"></i>
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </div>
+                            <p class="action">Scroll up</p>
+                        </div>
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </div>
+                            <p class="action">Like Post</p>
+                        </div>
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-pointer-o"></i>
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </div>
+                            <p class="action">View Profile</p>
+                        </div>
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-stop-o"></i>
+                            </div>
+                            <p class="action">Stop Scrolling</p>
+                        </div>
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-stop-o"></i>
+                                <i class="fa fa-hand-stop-o"></i>
+                            </div>
+                            <p class="action">Toggle Comments</p>
+                        </div>
+                        <div class="instruction">
+                            <div class="gesture">
+                                <i class="fa fa-hand-stop-o"></i>
+                                <i class="fa fa-hand-grab-o"></i>
+                            </div>
+                            <p class="action">Return to Feed</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="posts">
