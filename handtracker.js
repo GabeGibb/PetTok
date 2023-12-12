@@ -150,17 +150,19 @@ function doAction(gesture){
     else if (gesture == 'Open Pointing'){//LIKE
         let index = getCurrentPostNum();
         let curPost = postsDivs[index]
-        let test = curPost.getElementsByClassName('interactions')[0].children[0].click()
+        curPost.getElementsByClassName('interactions')[0].children[0].click()
     }
-    else if (gesture == 'Two Pointing'){//VIEW PROFILE
-        return; 
+    else if (gesture == 'Open Closed'){//VIEW PROFILE
+        let index = getCurrentPostNum();
+        let curPost = postsDivs[index]
+        curPost.children[0].click()
     }
     else if (gesture == 'Two Open'){//TOGGLE COMMENTS
         let index = getCurrentPostNum();
         let curPost = postsDivs[index]
-        let test = curPost.getElementsByClassName('interactions')[0].children[1].click()
+        curPost.getElementsByClassName('interactions')[0].children[1].click()
     }
-    else if (gesture == 'Open Closed'){//GO TO MAIN PAGE
+    else if (gesture == 'Closed Pointing'){//GO TO MAIN PAGE
         window.location.href = 'index.html'
     }
     shouldWait = true;
