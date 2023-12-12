@@ -95,6 +95,8 @@ body{
     left:5px;
     position:relative;
     align-items:center;
+    flex-wrap: wrap;
+    width: 80%;
 }
 .captionUser{
     color:#2E5EAA;
@@ -110,6 +112,7 @@ body{
 }
 .pic{
     position: relative;
+    margin: auto;
 }
 .comments{
     position:absolute;
