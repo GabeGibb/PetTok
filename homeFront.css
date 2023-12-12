@@ -9,11 +9,11 @@
 .infoDiv{
     /* margin:auto; */
     display:flex;
-    flex-wrap:wrap;
+    /* flex-wrap:wrap; */
     flex-direction: column;
     background-color: white;
-    max-width:95%;
-    width: 500px;
+    max-width:100%;
+    /* width: 500px; */
     /* top:20%; */
     /* position:absolute; */
     z-index: 50;

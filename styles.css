@@ -152,17 +152,17 @@ body{
 
 #content{
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 1fr 1fr;
 }
 #webcam{
     display: flex;
+    justify-content: space-around;
     /* justify-content: center; */
     /* flex-direction: row; */
 }
 #camContent{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     position: fixed;
     margin: auto;

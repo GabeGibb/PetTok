@@ -1,0 +1,4 @@
+Change icons for hands
+Add title to other pages
+Format camera better
+Get rid of home page
